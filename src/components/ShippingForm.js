@@ -10,8 +10,8 @@ const ShippingForm = () =>
         rubberStamp: false,
         Insurance: false,
         Hazardous: false,
-        CustomsForm:false,
-        SavePackage:false
+        CustomsForm: false,
+        SavePackage: false
     });
 
     const handleCheckboxChange = (key) =>
@@ -112,7 +112,7 @@ const ShippingForm = () =>
                     >
                         <div className="">
                             <h1 className="text-[1em] font-[400] text-[#030303]">
-                                Don't use saved Ship From Address
+                                Don&lsquo;t use saved Ship From Address
                             </h1>
                             <p className="text-[.824em] font-[400] text-[#999] mt-[3px]">
                                 Create New Ship From Address
@@ -227,7 +227,6 @@ const ShippingForm = () =>
                         type="checkbox"
                         checked={checkedBoxes.Hazardous}
                         onChange={() => handleCheckboxChange("Hazardous")}
-
                         className="w-[15px] h-[15px]"
                     />
                     <p>
@@ -238,6 +237,11 @@ const ShippingForm = () =>
                         <span className="text-blue-500 text-[.824em] underline">Learn how to ship Hazardous Materials</span>
                     </p>
                 </label>
+                {checkedBoxes.Hazardous && (
+                    <div className="mt-3 text-[16px] bg-linear-to-b from-[#f2dede] to-[#e7c3c3] border-[1px] border-[#dca7a7] text-shadow-[0_1px_0px_#ffffff33] font-[600] text-[#a94442] mb-[20px] p-[15px] rounded-[4px]">
+                        By using Pirate Ship, you certify that your shipment does not contain any undeclared <span className="text-[#00a9ff]">hazardous materials</span> or any matter <span className="text-[#00a9ff]">prohibited by law or postal regulation.</span>
+                    </div>
+                )}
             </div>
             <div className="my-[1em]">
                 <label className="flex space-x-[5px] text-sm pt-[7px]">
