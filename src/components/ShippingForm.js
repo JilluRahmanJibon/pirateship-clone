@@ -5,8 +5,6 @@ const ShippingForm = () =>
 {
     const [ checkedBoxes, setCheckedBoxes ] = useState({
         rubberStamp: false,
-        fragile: false,
-        insurance: false,
     });
 
     const handleCheckboxChange = (key) =>
@@ -64,7 +62,11 @@ const ShippingForm = () =>
                 )}
 
             </div>
-
+            <div>
+                <h1>Ship From</h1>
+                
+</div>
+            
             {/* Ship From & Packaging এরপর */}
         </div>
     );
