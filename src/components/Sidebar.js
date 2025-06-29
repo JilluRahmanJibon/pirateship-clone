@@ -3,26 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "../../public/icons/logo.svg";
+import ship from '../../public/icons/menu-ship.png'
+import rates from '../../public/icons/menu-rates.png'
+import reports from '../../public/icons/menu-reports.png'
+import settings from '../../public/icons/menu-settings.png'
+import support from '../../public/icons/menu-support.png'
+import logout from '../../public/icons/menu-logout.png'
 import
 {
-    FaBox,
-    FaCoins,
-    FaBookOpen,
-    FaCogs,
-    FaLifeRing,
-    FaSignOutAlt,
+
     FaBars,
     FaTimes,
 } from "react-icons/fa";
 import { useState } from "react";
 
 const menuItems = [
-    { label: "Ship", icon: <FaBox />, href: "/ship-single" },
-    { label: "Rates", icon: <FaCoins />, href: "/rates" },
-    { label: "Reports", icon: <FaBookOpen />, href: "/reports" },
-    { label: "Settings", icon: <FaCogs />, href: "/settings" },
-    { label: "Support", icon: <FaLifeRing />, href: "/support" },
-    { label: "Logout", icon: <FaSignOutAlt />, href: "/logout" },
+    { label: "Ship", icon: ship, href: "/ship" },
+    { label: "Rates", icon: rates, href: "/rates" },
+    { label: "Reports", icon: reports, href: "/reports" },
+    { label: "Settings", icon: settings, href: "/settings" },
+    { label: "Support", icon: support, href: "/support" },
+    { label: "Logout", icon: logout, href: "/logout" },
 ];
 
 const Sidebar = () =>
@@ -45,7 +46,7 @@ const Sidebar = () =>
                 className={`bg-gray-100 text-black h-screen  flex flex-col justify-between fixed top-0 left-0 z-50 transition-transform duration-300 md:static sm:w-auto w-full ${ isOpen ? "translate-x-0 top-[85px]" : "-translate-x-full md:translate-x-0  top-[85px]"
                     }`}
             >
-                <div className="space-y-6">
+                <div className="space-y-2">
                     <div className="hidden md:flex items-center justify-center  ">
                         <div className="bg-black w-[215px] h-[215px] flex items-center justify-center">
                             <Image alt="logo" src={logo} />
@@ -66,7 +67,7 @@ const Sidebar = () =>
                     </nav>
                 </div>
 
-                <div className="text-xs text-gray-500 space-y-1">
+                <div className="text-xs text-gray-500 space-y-1 px-2">
                     <p>© 2014–2025 – All Rights Reserved</p>
                     <p>
                         <a href="#" className="underline">
@@ -83,13 +84,30 @@ const SidebarItem = ({ icon, label, href, active, onClick }) => (
     <Link href={href}>
         <div
             onClick={onClick}
-            className={`flex items-center space-x-3 p-2 rounded-md cursor-pointer transition hover:bg-white ${ active ? "bg-white shadow" : ""
-                }`}
+            className={`relative group h-[70px] flex items-center   px-4 rounded-md cursor-pointer transition 
+        ${ active
+                    ? "bg-white"
+                    : "   bg-transparent"
+                } 
+        hover:bg-white  `}
         >
-            <div className="text-xl">{icon}</div>
-            <span className="text-sm font-medium">{label}</span>
+            <div className=" w-[70px] h-[70px]">
+                <Image
+                    src={icon}
+                    alt={label}
+                    className="w-full h-full object-contain"
+                />
+
+             
+            </div>
+            {!active && (
+                <div className="absolute inset-0 bg-gray-100/50  group-hover:opacity-0 transition-opacity rounded" />
+            )}
+            <span className="text-xl font-bold">{label}</span>
+
         </div>
     </Link>
+
 );
 
 export default Sidebar;
