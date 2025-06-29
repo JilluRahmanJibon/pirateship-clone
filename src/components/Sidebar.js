@@ -67,7 +67,7 @@ const Sidebar = () =>
                     </nav>
                 </div>
 
-                <div className="text-xs text-gray-500 space-y-1 px-2">
+                <div className="text-[8px] text-gray-500 text-center space-y-1 px-2">
                     <p>© 2014–2025 – All Rights Reserved</p>
                     <p>
                         <a href="#" className="underline">
@@ -84,7 +84,7 @@ const SidebarItem = ({ icon, label, href, active, onClick }) => (
     <Link href={href}>
         <div
             onClick={onClick}
-            className={`relative group h-[70px] flex items-center   px-4 rounded-md cursor-pointer transition 
+            className={`relative group h-[70px] flex items-center gap-[16px]  px-4 rounded-md cursor-pointer transition 
         ${ active
                     ? "bg-white"
                     : "   bg-transparent"
@@ -98,7 +98,7 @@ const SidebarItem = ({ icon, label, href, active, onClick }) => (
                     className="w-full h-full object-contain"
                 />
 
-             
+
             </div>
             {!active && (
                 <div className="absolute inset-0 bg-gray-100/50  group-hover:opacity-0 transition-opacity rounded" />

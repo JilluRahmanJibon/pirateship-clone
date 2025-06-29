@@ -19,15 +19,17 @@ export const metadata = {
 export default function RootLayout ({ children })
 {
   return (
-    <html lang="en">
+    <html data-arp="" lang="en">
       <body
         className={`${ geistSans.variable } ${ geistMono.variable } antialiased bg-white`}
       >
-        <div className="md:flex  min-h-screen bg-white text-gray-900">
-          <Sidebar />
+        <div className="md:flex bg-white text-gray-900">
+          <div className="bg-gray-100">
+            <Sidebar />
+          </div>
           <div className="w-full">
             {children}
-         </div>
+          </div>
         </div>
       </body>
     </html>
