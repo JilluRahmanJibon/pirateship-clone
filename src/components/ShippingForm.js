@@ -5,9 +5,112 @@ import { FaCaretDown } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
+const PackagingCardsData = [
+  {
+    id: 1,
+    title: "Envelope, Padded Envelope, Poly Bag, Soft Pack, or Box in a Bag",
+    description:
+      "Measure & use the Length and Width of the Envelope before putting anything in it",
+    image: "/images/SoftEnvelope.png",
+  },
+  {
+    id: 2,
+    title: "USPS Priority Mail Small Flat Rate Box",
+    description: "Small Flat Rate Mailing Box only",
+    image: "/images/SmallFlatRateBox.png",
+  },
+  {
+    id: 3,
+    title: "USPS Priority Mail Medium Flat Rate Box",
+    description:
+      "Any Medium Flat Rate Box, including 1 (Top-Loading) and 2 (Side-Loading)",
+    image: "/images/MediumFlatRateBox.png",
+  },
+  {
+    id: 4,
+    title: "USPS Priority Mail Large Flat Rate Box",
+    description:
+      "Any Large Flat Rate Box, including APO/FPO or Board Game Flat Rate Boxes",
+    image: "/images/LargeFlatRateBox.png",
+  },
+  {
+    id: 5,
+    title: "USPS Priority Mail Flat Rate Envelope",
+    description: "Non-padded Flat Rate Envelope including Small and Window",
+    image: "/images/FlatRateEnvelope.png",
+  },
+  {
+    id: 6,
+    title: "USPS Priority Mail Legal Flat Rate Envelope",
+    description: "Priority Mail Legal Flat Rate Envelope",
+    image: "/images/FlatRateLegalEnvelope.png",
+  },
+  {
+    id: 7,
+    title: "USPS Priority Mail Padded Flat Rate Envelope",
+    description: "Flat Rate-branded Padded Envelope only",
+    image: "/images/FlatRatePaddedEnvelope.png",
+  },
+  {
+    id: 8,
+    title: "USPS Priority Mail Express Padded Flat Rate Envelope",
+    description: "Express-branded only",
+    image: "/images/ExpressFlatRatePaddedEnvelope.png",
+  },
+  {
+    id: 9,
+    title: "USPS Priority Mail Express Legal Flat Rate Envelope",
+    description: "Express-branded only",
+    image: "/images/ExpressFlatRateLegalEnvelope.png",
+  },
+  {
+    id: 10,
+    title: "USPS Priority Mail Express Flat Rate Envelope",
+    description: "Express-branded non-padded only",
+    image: "/images/ExpressFlatRateEnvelope.png",
+  },
+  {
+    id: 11,
+    title: "UPS Express Envelope",
+    description: "UPS-branded Envelope for letter-sized documents",
+    image: "/images/01.png",
+  },
+  {
+    id: 12,
+    title: "UPS Small Express Box",
+    description: "UPS-branded box for small-sized shipments",
+    image: "/images/2a.png",
+  },
+  {
+    id: 13,
+    title: "UPS Medium Express Box",
+    description: "UPS-branded box for medium-sized shipments",
+    image: "/images/2b.png",
+  },
+  {
+    id: 14,
+    title: "UPS Large Express Box",
+    description: "UPS-branded box for large-sized shipments",
+    image: "/images/2c.png",
+  },
+  {
+    id: 15,
+    title: "UPS Express Tube",
+    description:
+      "UPS-branded triangular box for rolled documents (blueprints, posters, etc.)",
+    image: "/images/03.png",
+  },
+  {
+    id: 16,
+    title: "UPS Express Pak",
+    description: "UPS-branded poly envelope",
+    image: "/images/04.png",
+  },
+];
 
 const ShippingForm = () =>
 {
+
   const [ checkedBoxes, setCheckedBoxes ] = useState({
     rubberStamp: false,
     Insurance: false,
@@ -23,6 +126,8 @@ const ShippingForm = () =>
       [ key ]: !prev[ key ],
     }));
   };
+  const PackagingCardsDataLength = PackagingCardsData.length;
+
   return (
     <div className="flex-1 sm:p-[49px] p-[30px] mb-[4em]">
       <h1 className="text-[1.777em] font-[700] mb-8">
@@ -124,31 +229,76 @@ const ShippingForm = () =>
           </div>
         </div>
       </div>
+
+
+      {/* ------------Type of Packaging---------------- */}
       <div className="mb-[1.389em] pt-[7px]">
         <h1 className="text-[1em] font-[600] text-[#333] mb-[6.8px]">
           Type of Packaging
         </h1>
         <div
-          className={`w-full h-[150px] flex items-center justify-between p-[10px] border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px] cursor-pointer`}
+          className={`${ checkedBoxes.PackagingCards
+            ? "border-2 border-[#00a9ff] overflow-hidden"
+            : ""
+            } rounded-[5px]`}
         >
-          <div className="flex justify-between items-center">
-            <Image
-              src="/icons/Parcel-box.png"
-              alt="Parcel"
-              width={130}
-              height={130}
-              className="w-[130px] h-[130px] object-cover"
-            />
-            <div className="ml-[.9em]">
-              <h1 className="text-[1em] font-[400] text-[#030303]">
-                Box or Rigid Packaging
-              </h1>
-              <p className="text-[.824em] font-[400] text-[#999] mt-[3px]">
-                Any custom box or thick parcel
-              </p>
+          <div
+            onClick={() => handleCheckboxChange("PackagingCards")}
+            className={`w-full h-[150px] flex items-center justify-between p-[10px] ${ checkedBoxes.PackagingCards
+              ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
+              : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
+              } cursor-pointer`}
+          >
+            <div className="flex justify-between items-center">
+              <Image
+                src="/images/Parcel-box.png"
+                alt="Parcel"
+                width={130}
+                height={130}
+                className="w-[130px] h-[130px] object-cover"
+              />
+              <div className="ml-[.9em]">
+                <h1 className="text-[1em] font-[400] text-[#030303]">
+                  Box or Rigid Packaging
+                </h1>
+                <p className="text-[.824em] font-[400] text-[#999] mt-[3px]">
+                  Any custom box or thick parcel
+                </p>
+              </div>
             </div>
+            <FaCaretDown className="text-[1.3em] text-[#000]" />
           </div>
-          <FaCaretDown className="text-[1.3em] text-[#000]" />
+
+          {PackagingCardsData.map((card) =>
+          {
+            return (
+              <div key={card.id}
+                className={`w-full h-[150px] flex items-center justify-between p-[10px] ${ checkedBoxes.PackagingCards
+                  ? `hover:bg-[#d9f2ff] border-t-[1px] ${ PackagingCardsDataLength === card.id ? "" : "border-b-[1px]" } border-[#ccc] hover:border-[#00a9ff]`
+                  : "hidden"
+                  } cursor-pointer`}
+              >
+                <div className="flex justify-between items-center">
+                  <Image
+                    src={card.image}
+                    alt="Parcel"
+                    width={130}
+                    height={130}
+                    className="w-[130px] h-[130px] object-cover"
+                  />
+                  <div className="ml-[.9em]">
+                    <h1 className="text-[1em] font-[400] text-[#030303]">
+                      {card.title}
+                    </h1>
+                    <p className="text-[.824em] font-[400] text-[#999] mt-[3px]">
+                      {card.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
         </div>
       </div>
       <div className="pb-[1.389em] pt-[7px]">
