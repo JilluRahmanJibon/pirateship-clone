@@ -495,7 +495,7 @@ const ShippingForm = () =>
                     Add Line Item
                   </span>
                 </h1>
-                <Input placeholder="Describe what you're shipping" />
+                <Input placeholder="Describe what you&apos;re shipping" />
                 <div className="mt-[1.389em] flex items-center gap-[24px]">
                   <Input placeholder="Quantity" />
                   <Input placeholder="Total Value in $" />
@@ -519,7 +519,7 @@ const ShippingForm = () =>
                       </span>
                     </p>
                     <button className="h-[50px] p-[.7em] flex text-[1em] font-[600] text-[#fff] bg-[#00a9ff] border-[2px] border-[#0086ff] rounded-[0_5px_5px_0] absolute right-0 top-0 cursor-pointer">
-                      Search #'s
+                      Search #&apos;s
                     </button>
                   </div>
                   <div className="w-full">
