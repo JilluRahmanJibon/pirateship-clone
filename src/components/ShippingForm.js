@@ -4,9 +4,11 @@ import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
-const ShippingForm = () => {
-  const [checkedBoxes, setCheckedBoxes] = useState({
+const ShippingForm = () =>
+{
+  const [ checkedBoxes, setCheckedBoxes ] = useState({
     rubberStamp: false,
     Insurance: false,
     Hazardous: false,
@@ -14,10 +16,11 @@ const ShippingForm = () => {
     SavePackage: false,
   });
 
-  const handleCheckboxChange = (key) => {
+  const handleCheckboxChange = (key) =>
+  {
     setCheckedBoxes((prev) => ({
       ...prev,
-      [key]: !prev[key],
+      [ key ]: !prev[ key ],
     }));
   };
   return (
@@ -83,19 +86,17 @@ const ShippingForm = () => {
       <div className="mb-[1.389em]">
         <h1 className="text-[1em] font-[600] text-[#333]">Ship From</h1>
         <div
-          className={`${
-            checkedBoxes.ShipFrom
-              ? "border-2 border-[#00a9ff] overflow-hidden"
-              : ""
-          } rounded-[5px] mt-[6.8px]`}
+          className={`${ checkedBoxes.ShipFrom
+            ? "border-2 border-[#00a9ff] overflow-hidden"
+            : ""
+            } rounded-[5px] mt-[6.8px]`}
         >
           <div
             onClick={() => handleCheckboxChange("ShipFrom")}
-            className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-              checkedBoxes.ShipFrom
-                ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
-                : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
-            } cursor-pointer`}
+            className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${ checkedBoxes.ShipFrom
+              ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
+              : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
+              } cursor-pointer`}
           >
             <div className="">
               <h1 className="text-[1em] font-[400] text-[#030303]">M Jibon</h1>
@@ -106,11 +107,10 @@ const ShippingForm = () => {
             <FaCaretDown className="text-[1.3em] text-[#000]" />
           </div>
           <div
-            className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-              checkedBoxes.ShipFrom
-                ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
-                : "hidden"
-            } cursor-pointer`}
+            className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${ checkedBoxes.ShipFrom
+              ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
+              : "hidden"
+              } cursor-pointer`}
           >
             <div className="">
               <h1 className="text-[1em] font-[400] text-[#030303]">
@@ -219,16 +219,14 @@ const ShippingForm = () => {
           <FiPlusCircle
             onClick={() => handleCheckboxChange("ExtraServices")}
             size={20}
-            className={`text-[#999] ml-[-3px] cursor-pointer ${
-              checkedBoxes.ExtraServices ? "hidden" : ""
-            }`}
+            className={`text-[#999] ml-[-3px] cursor-pointer ${ checkedBoxes.ExtraServices ? "hidden" : ""
+              }`}
           />
           <FiMinusCircle
             onClick={() => handleCheckboxChange("ExtraServices")}
             size={20}
-            className={`text-[#999] ml-[-3px] cursor-pointer ${
-              checkedBoxes.ExtraServices ? "" : "hidden"
-            }`}
+            className={`text-[#999] ml-[-3px] cursor-pointer ${ checkedBoxes.ExtraServices ? "" : "hidden"
+              }`}
           />
 
           <p>
@@ -242,8 +240,8 @@ const ShippingForm = () => {
                 : ""}{" "}
               {checkedBoxes.IrregularPackage ? "Irregular Package," : ""}{" "}
               {checkedBoxes.SignatureConfirmation ||
-              checkedBoxes.QualifiesForMediaMail ||
-              checkedBoxes.IrregularPackage
+                checkedBoxes.QualifiesForMediaMail ||
+                checkedBoxes.IrregularPackage
                 ? ""
                 : "No extra services"}{" "}
               activated
@@ -269,21 +267,19 @@ const ShippingForm = () => {
             </div>
             {checkedBoxes.SignatureConfirmation && (
               <div
-                className={`${
-                  checkedBoxes.SignatureConfirmationOption
-                    ? "border-2 border-[#00a9ff] overflow-hidden"
-                    : ""
-                } rounded-[5px] mt-[6.8px]`}
+                className={`${ checkedBoxes.SignatureConfirmationOption
+                  ? "border-2 border-[#00a9ff] overflow-hidden"
+                  : ""
+                  } rounded-[5px] mt-[6.8px]`}
               >
                 <div
                   onClick={() =>
                     handleCheckboxChange("SignatureConfirmationOption")
                   }
-                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-                    checkedBoxes.SignatureConfirmationOption
-                      ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
-                      : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
-                  } cursor-pointer`}
+                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${ checkedBoxes.SignatureConfirmationOption
+                    ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
+                    : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
+                    } cursor-pointer`}
                 >
                   <div className="">
                     <h1 className="text-[1em] font-[400] text-[#030303]">
@@ -296,11 +292,10 @@ const ShippingForm = () => {
                   <FaCaretDown className="text-[1.3em] text-[#000]" />
                 </div>
                 <div
-                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-                    checkedBoxes.SignatureConfirmationOption
-                      ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
-                      : "hidden"
-                  } cursor-pointer`}
+                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${ checkedBoxes.SignatureConfirmationOption
+                    ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
+                    : "hidden"
+                    } cursor-pointer`}
                 >
                   <div className="">
                     <h1 className="text-[1em] font-[400] text-[#030303]">
@@ -432,19 +427,17 @@ const ShippingForm = () => {
                 Package Content Type
               </h1>
               <div
-                className={`${
-                  checkedBoxes.PackageContentType
-                    ? "border-2 border-[#00a9ff] overflow-hidden"
-                    : ""
-                } rounded-[5px] mt-[6.8px]`}
+                className={`${ checkedBoxes.PackageContentType
+                  ? "border-2 border-[#00a9ff] overflow-hidden"
+                  : ""
+                  } rounded-[5px] mt-[6.8px]`}
               >
                 <div
                   onClick={() => handleCheckboxChange("PackageContentType")}
-                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-                    checkedBoxes.PackageContentType
-                      ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
-                      : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
-                  } cursor-pointer`}
+                  className={`w-full flex items-center justify-between p-[10px] ${ checkedBoxes.PackageContentType
+                    ? `hover:bg-[#d9f2ff] border-b-[1px] border-[#ccc] hover:border-[#00a9ff]`
+                    : "border-2 border-gray-300 bg-linear-to-b from-[#fff] to-[#ebebebeb] rounded-[4px]"
+                    } cursor-pointer`}
                 >
                   <div className="">
                     <h1 className="text-[1em] font-[400] text-[#030303]">
@@ -459,11 +452,10 @@ const ShippingForm = () => {
                   <FaCaretDown className="text-[1.3em] text-[#000]" />
                 </div>
                 <div
-                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-                    checkedBoxes.PackageContentType
-                      ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
-                      : "hidden"
-                  } cursor-pointer`}
+                  className={`w-full flex items-center justify-between p-[10px] ${ checkedBoxes.PackageContentType
+                    ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
+                    : "hidden"
+                    } cursor-pointer`}
                 >
                   <div className="">
                     <h1 className="text-[1em] font-[400] text-[#030303]">
@@ -476,22 +468,101 @@ const ShippingForm = () => {
                   {/* <FaCaretDown className="text-[1.3em] text-[#000]" /> */}
                 </div>
                 <div
-                  className={`w-full h-[66.89px] flex items-center justify-between p-[10px] ${
-                    checkedBoxes.PackageContentType
-                      ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
-                      : "hidden"
-                  } cursor-pointer`}
+                  className={`w-full flex items-center justify-between p-[10px] ${ checkedBoxes.PackageContentType
+                    ? "hover:bg-[#d9f2ff] border-t-[1px] border-[#ccc] hover:border-[#00a9ff]"
+                    : "hidden"
+                    } cursor-pointer`}
                 >
                   <div className="">
                     <h1 className="text-[1em] font-[400] text-[#030303]">
                       Gift
                     </h1>
                     <p className="text-[.824em] font-[400] text-[#999] mt-[3px]">
-                      Only choose this option if it’s actually a gift… it will not reduce the chance of your recipient having to pay import duties!
+                      Only choose this option if it’s actually a gift… it will
+                      not reduce the chance of your recipient having to pay
+                      import duties!
                     </p>
                   </div>
                   {/* <FaCaretDown className="text-[1.3em] text-[#000]" /> */}
                 </div>
+              </div>
+            </div>
+            <div className="mt-[1.389em] flex md:flex-row flex-col md:justify-between justify-center gap-[11.75px] ">
+              <div className="md:w-[91.7777777%] w-full">
+                <h1 className="text-[1em] font-[600] text-[#333] py-[7px]">
+                  Customs Line Item #1{" "}
+                  <span className="text-[.824em] text-[#00a9ff] cursor-pointer">
+                    Add Line Item
+                  </span>
+                </h1>
+                <Input placeholder="Describe what you're shipping" />
+                <div className="mt-[1.389em] flex items-center gap-[24px]">
+                  <Input placeholder="Quantity" />
+                  <Input placeholder="Total Value in $" />
+                </div>
+
+                <div className="mt-[1.389em] flex items-center gap-[24px]">
+                  <Input placeholder="Total Weight lbs" />
+                  <div className="lg:w-[52px] w-fit flex justify-center items-center text-[22px] text-[#999]">
+                    +
+                  </div>
+                  <Input placeholder="Total Weight Oz" />
+                </div>
+
+                <div className="mt-[1.389em] flex lg:flex-row flex-col items-center gap-[24px]">
+                  <div className="w-full relative">
+                    <Input placeholder="Harmonization #" />
+                    <p className="text-center text-[.824em] text-[#999] p-[.3em]">
+                      Required for Certain Countries -{" "}
+                      <span className="text-[.824em] text-[#00a9ff]">
+                        Learn more
+                      </span>
+                    </p>
+                    <button className="h-[50px] p-[.7em] flex text-[1em] font-[600] text-[#fff] bg-[#00a9ff] border-[2px] border-[#0086ff] rounded-[0_5px_5px_0] absolute right-0 top-0 cursor-pointer">
+                      Search #'s
+                    </button>
+                  </div>
+                  <div className="w-full">
+                    <select className=" appearance-none border-2 border-gray-300 focus:outline-none focus:border-blue-500 px-4 py-[13px]  rounded w-full bg-linear-to-b from-[#fff] to-[#ebebeb] text-md">
+                      <option>United States</option>
+                      <option>Canada</option>
+                      <option>United Kingdom</option>
+                    </select>
+                    <p className="text-center text-[.824em] text-[#999] p-[.3em]">
+                      Item(s) Origin
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="md:w-[8.33333333%] w-full h-[51px] md:mt-[2.28em] mt-0 flex justify-center items-center">
+                <RiDeleteBin6Line
+                  size={25}
+                  className="text-[#999] w-[25px] cursor-pointer"
+                />
+              </div>
+            </div>
+            <h1 className="text-[1em] font-[600] text-[#333] py-[7px] mt-[1.389em]">
+              International Tax IDs
+            </h1>
+            <div className="flex lg:flex-row flex-col items-center gap-[24px]">
+              <div className="w-full">
+                <Input placeholder="Sender Tax ID" />
+                <p className="text-center text-[.824em] text-[#999] p-[.3em]">
+                  Optional: IOSS/HMRC/VOEC -{" "}
+                  <span className="text-[.824em] text-[#00a9ff]">
+                    Learn more
+                  </span>
+                </p>
+              </div>
+              <div className="w-full">
+                <Input placeholder="Recipient Tax ID" />
+                <p className="text-center text-[.824em] text-[#999] p-[.3em]">
+                  Mexico/Brazil/EU (EORI) -{" "}
+                  <span className="text-[.824em] text-[#00a9ff]">
+                    Learn more
+                  </span>
+                </p>
               </div>
             </div>
           </div>
@@ -519,13 +590,13 @@ const ShippingForm = () => {
         )}
       </div>
 
-      <div className="w-full flex justify-end mt-[.694em] mb-[1.389em]">
+      <div className="w-full flex justify-end mt-[.694em] mb-[15rem]">
+        {/* <div className="w-full flex justify-end mt-[.694em] mb-[1.389em]"> */}
         <button className="lg:w-fit w-full lg:h-fit h-[83px] lg:text-[1.777em] text-[1.1em] lg:p-[25px_100px] p-[0px] text-white rounded-[10px] font-[700] bg-[#2ca200] border-[3px] border-[#008e00] transition-colors">
           Get Rates
         </button>
       </div>
 
-      {/* Ship From & Packaging এরপর */}
     </div>
   );
 };
@@ -537,8 +608,9 @@ const Input = ({
   onChange,
   type = "text",
   name,
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
+}) =>
+{
+  const [ isFocused, setIsFocused ] = useState(false);
 
   const showLabelUp = isFocused || value;
 
@@ -552,13 +624,13 @@ const Input = ({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
-        className={`peer border-2 border-gray-300 px-4 pt-5 pb-2 rounded w-full text-sm placeholder-transparent focus:outline-none focus:border-blue-500 ${className}`}
+        className={`peer border-2 border-gray-300 px-4 pt-5 pb-2 rounded w-full text-sm placeholder-transparent focus:outline-none focus:border-blue-500 ${ className }`}
       />
       <label
         htmlFor={name}
         className={`
             absolute left-4 text-gray-500 transition-all duration-200 bg-white px-1
-            ${showLabelUp ? "text-xs -top-2" : "top-3 text-sm"}
+            ${ showLabelUp ? "text-xs -top-2" : "top-3 text-sm" }
           `}
       >
         {placeholder}
